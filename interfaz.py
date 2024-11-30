@@ -27,6 +27,9 @@ class Frame_scroll(Frame):
         limpiar_frame(self.scrollable_frame)
 
 #limpiar frames (por si acaso jsjs)
+def elimnar_frame(Frame):
+    Frame.destroy()
+
 def limpiar_frame(frame):
    for w in frame.winfo_children():
       w.destroy()

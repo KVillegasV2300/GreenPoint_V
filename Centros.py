@@ -14,7 +14,8 @@ centros_reciclaje = [
         "materiales": ["Escombros", "Desechos vegetales", "Aceites y grasas"],
         "precios":[2,2,4],
         "horarios": "Lunes a viernes: 8:00 am - 6:00 pm",
-        "link": "https://maps.app.goo.gl/9hYGHAfP6suBogjm7"
+        "link": "https://maps.app.goo.gl/9hYGHAfP6suBogjm7",
+        "key" : "1234"
     },
     {
         "nombre": "Centro de Acopio de Residuos Reciclables (CAMH)",
@@ -22,7 +23,8 @@ centros_reciclaje = [
         "materiales": ["Plásticos", "Papel", "Cartón", "Vidrio", "Metales", "Electrónicos"],
         "precios":[5,3,4,3,9,9],
         "horarios": "Lunes a sábado: 9:00 am - 5:00 pm",
-        "link": "https://maps.app.goo.gl/tiqugsXU9aGtLm2d9"
+        "link": "https://maps.app.goo.gl/tiqugsXU9aGtLm2d9", 
+        "key" : "1234"
     },
     {
         "nombre": "Centro de Reciclaje Avenida Juárez",
@@ -30,7 +32,8 @@ centros_reciclaje = [
         "materiales": ["Cascajo", "Residuos vegetales", "Aceites usados"],
         "precios":[2,3,4],
         "horarios": "Lunes a viernes: 7:00 am - 4:00 pm",
-        "link": "https://maps.app.goo.gl/YAnK9pS8ohp5YUC46"
+        "link": "https://maps.app.goo.gl/YAnK9pS8ohp5YUC46",
+        "key" : "1908"
     },
     {
         "nombre": "Centro de Reciclaje Avenida Juárez",
@@ -38,7 +41,8 @@ centros_reciclaje = [
         "materiales": ["Aceites y grasas", "Plásticos", "Papel", "Cartón"],
         "precios":[3,3,9],
         "horarios": "Lunes a viernes: 7:00 am - 4:00 pm",
-        "link": "https://maps.app.goo.gl/C1YjxMGiC8iMZ4GWA"
+        "link": "https://maps.app.goo.gl/C1YjxMGiC8iMZ4GWA",
+        "key" : "3456"
     }
 ]
 
