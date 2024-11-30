@@ -1,6 +1,7 @@
 import tkinter as tk
-from tkinter import messagebox, simpledialog, ttk, Toplevel
+from tkinter import messagebox, simpledialog
 import os
+
 # Lista de materiales reciclables
 materiales_reciclables = [
     "Escombros", "Desechos vegetales", "Aceites y grasas", "Plásticos", "Papel", "Cartón",
@@ -18,37 +19,35 @@ def cargar_datos():
     if os.path.exists(ARCHIVO):
         with open(ARCHIVO, "r") as f:
             for linea in f:
-                partes = linea.strip().split(",")
+                partes = linea.strip().split(";")
                 if len(partes) >= 8:
-                    try:
-                        nombre = partes[0]
-                        direccion = partes[1]
-                        telefono = partes[2]
-                        horarios = partes[3]
-                        materiales = partes[4:]
-                        precios = list(map(float, partes[5:]))
-                        link = partes[6]
-                        clave = partes[7]
-                        centro = {
-                            "nombre": nombre,
-                            "direccion": direccion,
-                            "telefono": telefono,
-                            "horarios": horarios,
-                            "materiales": materiales,
-                            "precios": precios,
-                            "link": link,
-                            "clave": clave
-                        }
-                        centros.append(centro)
-                    except ValueError:
-                        print("Error al cargar materiales o precios. Verifique el archivo.")
+                    nombre = partes[0]
+                    direccion = partes[1]
+                    telefono = partes[2]
+                    horarios = partes[3]
+                    materiales = partes[4].split(",")
+                    precios = list(map(float, partes[5].split(",")))
+                    link = partes[6]
+                    clave = partes[7]
+                    centro = {
+                        "nombre": nombre,
+                        "direccion": direccion,
+                        "telefono": telefono,
+                        "horarios": horarios,
+                        "materiales": materiales,
+                        "precios": precios,
+                        "link": link,
+                        "clave": clave
+                    }
+                    centros.append(centro)
+
 cargar_datos()
 
 # Función para guardar los datos
 def guardar_datos():
     with open(ARCHIVO, "w") as f:
         for centro in centros:
-            f.write(f"{centro['nombre']}, {centro['direccion']}, {centro['telefono']}, {centro['horarios']}, {','.join(map(str, centro['materiales']))}, {','.join(map(str, centro['precios']))}, {centro['link']}, {centro['clave']} \n")
+            f.write(f"{centro['nombre']};{centro['direccion']};{centro['telefono']};{centro['horarios']};{','.join(centro['materiales'])};{','.join(map(str, centro['precios']))};{centro['link']};{centro['clave']}\n")
 
 # Función para registrar un centro
 def registrar_centro():
@@ -92,30 +91,12 @@ def consultar_centros():
     if not centros:
         messagebox.showinfo("Sin centros", "No hay centros registrados.")
     else:
-        # Crear una nueva ventana para la tabla
-        ventana_tabla = Toplevel(ventana)
-        ventana_tabla.title("Lista de Centros")
-        ventana_tabla.geometry("1000x600")
-
-        # Crear un Treeview para mostrar los centros en formato de tabla
-        columnas = ("Nombre", "Dirección", "Teléfono", "Horarios", "Materiales", "Precios", "Link")
-        tabla = ttk.Treeview(ventana_tabla, columns=columnas, show="headings")
-
-        # Configurar encabezados
-        for columna in columnas:
-            tabla.heading(columna, text=columna)
-            tabla.column(columna, width=120)
-
-        # Insertar datos de los centros en la tabla
+        consulta = ""
         for centro in centros:
             materiales = ", ".join(centro['materiales'])
             precios = ", ".join(map(str, centro['precios']))
-            tabla.insert("", tk.END, values=(
-                centro["nombre"], centro["direccion"], centro["telefono"],
-                centro["horarios"], materiales, precios, centro["link"]
-            ))
-
-        tabla.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
+            consulta += f"Nombre: {centro['nombre']}; Dirección: {centro['direccion']}; Teléfono: {centro['telefono']}; Horarios: {centro['horarios']}; Materiales: {materiales}; Precios: {precios}; Link: {centro['link']}\n"
+        messagebox.showinfo("Lista de Centros", consulta)
 
 # Función para buscar un centro por clave
 def buscar_centro():
@@ -128,34 +109,17 @@ def buscar_centro():
             break
 
     if centro_encontrado:
-        # Crear una nueva ventana para mostrar los detalles
-        ventana_tabla = Toplevel(ventana)
-        ventana_tabla.title("Detalles del Centro")
-        ventana_tabla.geometry("1000x600")
-
-        columnas = ("Nombre", "Dirección", "Teléfono", "Horarios", "Materiales", "Precios", "Link")
-        tabla = ttk.Treeview(ventana_tabla, columns=columnas, show="headings")
-
-        for columna in columnas:
-            tabla.heading(columna, text=columna)
-            tabla.column(columna, width=120)
-
         materiales = ", ".join(centro_encontrado['materiales'])
         precios = ", ".join(map(str, centro_encontrado['precios']))
-
-        tabla.insert("", tk.END, values=(
-            centro_encontrado["nombre"], centro_encontrado["direccion"], centro_encontrado["telefono"],
-            centro_encontrado["horarios"], materiales, precios, centro_encontrado["link"]
-        ))
-
-        tabla.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
+        consulta = f"Nombre: {centro_encontrado['nombre']}, Dirección: {centro_encontrado['direccion']}, Teléfono: {centro_encontrado['telefono']}, Horarios: {centro_encontrado['horarios']}, Materiales: {materiales}, Precios: {precios}, Link: {centro_encontrado['link']}"
+        messagebox.showinfo("Centro encontrado", consulta)
     else:
         messagebox.showwarning("No encontrado", "No se encontró un centro con esa clave.")
 
 # Función para editar un centro
 def editar_centro():
     ventana.withdraw()
-    clave = simpledialog.askstring("Entrada", "Ingresa la clave del centro que deseas editar: ")
+    clave = simpledialog.askstring("Entrada", "Ingresa la clave del centro que deseas editar:")
     for centro in centros:
         if centro['clave'] == clave:
             centro['nombre'] = simpledialog.askstring("Entrada", "Ingresa el nuevo nombre o presiona ENTER para mantener el actual:") or centro['nombre']
