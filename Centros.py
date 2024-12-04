@@ -1,6 +1,6 @@
 # Lista de materiales reciclables
 materiales_reciclables = [
-    "Escombros", "Desechos vegetales", "Aceites y grasas", "Plásticos", "Papel", "Cartón",
+    "Escombros", "Residuos vegetales", "Aceites y grasas", "Plásticos", "Papel", "Cartón",
     "Vidrio", "Metales", "Electrónicos", "Cascajo", "Aceites usados"
 ]
 
@@ -11,7 +11,7 @@ centros_reciclaje = [
     {
         "nombre": "Planta de Reciclaje CIREC Miguel Hidalgo",
         "direccion": "Calle 5 de mayo #150, Col. San Lorenzo Tlaltenango",
-        "materiales": ["Escombros", "Desechos vegetales", "Aceites y grasas"],
+        "materiales": ["Escombros", "Residuos vegetales", "Aceites y grasas"],
         "precios":[2,2,4],
         "horarios": "Lunes a viernes: 8:00 am - 6:00 pm",
         "link": "https://maps.app.goo.gl/9hYGHAfP6suBogjm7",
