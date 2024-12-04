@@ -133,7 +133,7 @@ def busqueda_key(key):
     #filtramos los centros
     resultados = [] #aqui pondremos los materiales que cumplan con las condiciones
     for centro in m.centros: #primera condicion: accederemos a todos los centros
-        if key in centro["key"]:
+        if key in centro["clave"]:
             resultados.append(centro) #pues aqui nomas append jajaj salu2
     
     return resultados

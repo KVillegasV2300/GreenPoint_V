@@ -15,7 +15,8 @@ centros_reciclaje = [
         "precios":[2,2,4],
         "horarios": "Lunes a viernes: 8:00 am - 6:00 pm",
         "link": "https://maps.app.goo.gl/9hYGHAfP6suBogjm7",
-        "key" : "1234"
+        "clave" : "1234",
+        "telefono" : "5555555555555555"
     },
     {
         "nombre": "Centro de Acopio de Residuos Reciclables (CAMH)",
@@ -24,7 +25,8 @@ centros_reciclaje = [
         "precios":[5,3,4,3,9,9],
         "horarios": "Lunes a sábado: 9:00 am - 5:00 pm",
         "link": "https://maps.app.goo.gl/tiqugsXU9aGtLm2d9", 
-        "key" : "1234"
+        "clave" : "1234",
+        "telefono" : "5555555555555555"
     },
     {
         "nombre": "Centro de Reciclaje Avenida Juárez",
@@ -33,7 +35,8 @@ centros_reciclaje = [
         "precios":[2,3,4],
         "horarios": "Lunes a viernes: 7:00 am - 4:00 pm",
         "link": "https://maps.app.goo.gl/YAnK9pS8ohp5YUC46",
-        "key" : "1908"
+        "clave" : "1908",
+        "telefono" : "5555555555555555"
     },
     {
         "nombre": "Centro de Reciclaje Avenida Juárez",
@@ -42,7 +45,8 @@ centros_reciclaje = [
         "precios":[3,3,9],
         "horarios": "Lunes a viernes: 7:00 am - 4:00 pm",
         "link": "https://maps.app.goo.gl/C1YjxMGiC8iMZ4GWA",
-        "key" : "3456"
+        "clave" : "3456",
+        "telefono" : "5555555555555555"
     }
 ]
 
