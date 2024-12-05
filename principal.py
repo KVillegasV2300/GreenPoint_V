@@ -4,6 +4,8 @@ import vista
 import Centros
 import Cuentas
 
+#agregar el os de las cuentas
+#agregar lo de registrar y editar cuenta
 
 def main():
     #diccionario de las funciones
@@ -33,7 +35,8 @@ def main():
         "registrar_cuenta" : Cuentas.registrar_cuenta,
         "iniciar_sesion" : Cuentas.iniciar_sesion,
         "obtener_tipo" : Cuentas.obtener_tipo,
-        "obtener_clave" : Cuentas.obtener_clave
+        "obtener_clave" : Cuentas.obtener_clave,
+        "validar_contrasena" : Cuentas.validar_contrasena
     }
 
     vista.interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros, administrar_cuentas)

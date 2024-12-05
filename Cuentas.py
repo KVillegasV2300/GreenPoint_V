@@ -77,3 +77,11 @@ def obtener_tipo(usuario):
 
 def obtener_clave(usuario):
     return usuario["clave"]
+
+def validar_contrasena(contrasena, usuario):
+    if contrasena == usuario["contrasena"]:
+        return True
+    else:
+        messagebox.showerror("Error", "Contraseña incorrecta.")
+        return False
+     

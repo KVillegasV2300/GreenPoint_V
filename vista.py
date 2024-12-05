@@ -73,7 +73,7 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         subtitulo_label.pack(pady=10)
 
         #scroll
-        scroll = interfaz_funciones["frame_scroll"](frame_principal) #frame principal de busqueda y SCROLLBAR
+        scroll = interfaz_funciones["frame_scroll"](frame_principal, 500, 1000) #frame principal de busqueda y SCROLLBAR
         scroll.place(x=40,y=170) #place significa que NOSOTROS necesitaremos acomodar manualmente el widget, con coordenadas x e y
         
         #creamos la barra
@@ -105,7 +105,7 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
             acciones_frame = Frame(scroll.scrollable_frame, bg="#D9D9D9")
             interfaz_funciones["mostrar_centro"](centro,  scroll.scrollable_frame)
             btn_editar = Button(acciones_frame, text="editar", command= lambda : [interfaz_funciones["eliminar_frame"](frame_principal), pagina_editar(centro, "editar", clave)])
-            btn_eliminar = Button(acciones_frame, text="eliminar")
+            btn_eliminar = Button(acciones_frame, text="eliminar", command=lambda: eliminar_centro(centro, frame_principal))
 
             acciones_frame.pack(fill=X)
             btn_editar.pack(side=RIGHT)
@@ -122,12 +122,43 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         btn_agregar.pack()
 
         #scroll
-        scroll = interfaz_funciones["frame_scroll"](frame_principal) #frame principal de busqueda y SCROLLBAR
+        scroll = interfaz_funciones["frame_scroll"](frame_principal, 500, 1000) #frame principal de busqueda y SCROLLBAR
         scroll.place(x=40,y=170) #place significa que NOSOTROS necesitaremos acomodar manualmente el widget, con coordenadas x e y
 
         busqueda_key(clave)
 
         frame_principal.pack(fill=BOTH, expand=True)
+    
+        """------------------------------------Eliminar centro-----------------------------------"""
+    def eliminar_centro(centro, frame_principal):
+        global usuario
+        pagina_principal = tk.Toplevel(root)
+        pagina_principal.title("Eliminar centro")
+
+        def manejar_eliminar():
+            contrasena = contrasena_entrada.get()
+            validacion = administrar_cuentas["validar_contrasena"](contrasena, usuario)
+            
+            if validacion:
+                administrar_centros["eliminar_centro"](centro)
+                messagebox.showinfo("Centro", "El centro fue eliminado exitosamente") 
+                pagina_principal.destroy()   
+                
+                #refrescar pagina
+                interfaz_funciones["eliminar_frame"](frame_principal)
+                pagina_crear()
+
+
+        Label(pagina_principal, text=f"¿Deseas eliminar el centro: {centro["nombre"]}?").pack(pady=10)
+        Label(pagina_principal, text="Para eliminar el centro, necesita confirmar su contraseña").pack(pady=5)
+        contrasena_entrada = Entry(pagina_principal)
+        contrasena_entrada.pack(pady=10)
+
+        btn_confirmar= Button(pagina_principal, text="enviar", command= manejar_eliminar)
+        btn_cancelar = Button(pagina_principal, text="cancelar", command= lambda: [pagina_principal.destroy()])
+
+        btn_confirmar.pack()
+        btn_cancelar.pack()
     
     """------------------------------------pagina editar/agregar-----------------------------------"""
     def pagina_editar(centro, caso ,clave = None):
@@ -175,8 +206,19 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
             nuevo_link = editar_link.get()
             nuevo_telefono = editar_telefono.get()
             
-            if caso == "agregar": administrar_centros["agregar_centro"](centro) #solo si se esta agregando un nuevo centro
-            administrar_centros["editar_centro"](nuevo_nombre, nuevo_direccion, nuevo_telefono, nuevo_horario, materiales, precios, nuevo_link, centro["clave"], centro)
+            #validacion
+
+            if len(nuevo_nombre) > 40:
+                messagebox.showwarning("Error", "El nombre debe de tener menos de 40 caracteres")
+                return
+            elif len(nuevo_telefono) > 15:
+                messagebox.showwarning("Error", "El numero de telefono debe de tener menos de 15 caracteres")
+                return
+            else:
+                if caso == "agregar": administrar_centros["agregar_centro"](centro) #solo si se esta agregando un nuevo centro
+                administrar_centros["editar_centro"](nuevo_nombre, nuevo_direccion, nuevo_telefono, nuevo_horario, materiales, precios, nuevo_link, centro["clave"], centro)
+                interfaz_funciones["eliminar_frame"](frame_principal)
+                pagina_crear()
         
         def boton_casa():
             #otro encabezado (posibles botones futuros)
@@ -228,7 +270,7 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         editar_telefono.insert(0, centro["telefono"])
         editar_telefono.pack()
 
-        btn_enviar = Button(frame_principal, text="Guardar", command=lambda : [obtener_cambios(), interfaz_funciones["eliminar_frame"](frame_principal), pagina_crear()])
+        btn_enviar = Button(frame_principal, text="Guardar", command= obtener_cambios)
         btn_cancelar = Button(frame_principal, text="Cancelar", command= lambda: [interfaz_funciones["eliminar_frame"](frame_principal),pagina_crear()])
         btn_enviar.pack(pady=5)
         btn_cancelar.pack(pady=5)
@@ -302,8 +344,7 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
 
         frame_principal.pack(fill=BOTH, expand=True)
 
-    """------------------------------------iniciar_sesion-----------------------------------"""
-
+    """------------------------------------pagina edtar cuenta-----------------------------------"""
     def pagina_cuenta():
         frame_principal = Frame(root)
 
@@ -326,14 +367,15 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
 
         
         boton_casa()
+        
         Label(frame_principal, text="Tu cuenta").pack(pady=10)
         
         #nombre
         Label(frame_principal, text="Nombre:").pack(pady=5)
-        Label(frame_principal, text=f"{usuario["nombre"]}").pack(pady=5)
+
         #correo
         Label(frame_principal, text="Correo:").pack(pady=5)
-        Label(frame_principal, text=f"{usuario["correo"]}").pack(pady=5)
+
         #contraseña
         Label(frame_principal, text="Contraseña:").pack(pady=5)
 
@@ -345,6 +387,23 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         btn_cerrar = Button(frame_principal, text="Cerrar sesion", command=lambda : [cerrar_sesion() ,pagina_principal(),interfaz_funciones["eliminar_frame"](frame_principal)])
         btn_editar.pack(pady=5)
         btn_cerrar.pack(pady=5)
+
+        frame_principal.pack(fill=BOTH, expand=True)
+    
+    """------------------------------------editar cuenta-----------------------------------"""
+    def pagina_editar_cuenta():
+        frame_principal = Frame(root)
+
+        def boton_casa():
+            #otro encabezado (posibles botones futuros)
+            botones_frame = Frame(frame_principal, bg="#636363")
+            botones_frame.pack(fill="x")
+            btn_agregar_centro = Button(botones_frame, text="Pagina principal",**Boton_estilo, command= lambda: [interfaz_funciones["eliminar_frame"](frame_principal),pagina_principal()])
+            btn_agregar_centro.grid(row=0, column=0)
+        
+        boton_casa()
+
+        #nombre
 
         frame_principal.pack(fill=BOTH, expand=True)
 

@@ -8,9 +8,10 @@ import Centros as m
 
 #esto es robado si? sufri mucho agregando el scrollbar :(((((
 class Frame_scroll(Frame):
-    def __init__(self, container, *args, **kwargs):
+    def __init__(self, container, h, w, *args, **kwargs):
         super().__init__(container, *args, **kwargs)
-        self.canvas = tk.Canvas(self, height=500, width=1000)
+        #self.canvas = tk.Canvas(self, height=500, width=1000)
+        self.canvas = tk.Canvas(self, height=h, width=w)
         self.scrollbar = ttk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
         self.scrollable_frame = Frame(self.canvas, padx=50, pady=15)
 
@@ -51,12 +52,19 @@ def mostrar_centro(centro_i, root):
     informacion.pack_propagate(False) #evitar el resize
     informacion.pack(side=LEFT, padx=25, pady=25)
 
+    #scroll
+
     # Agregar los materiales
     t_materiales = Label(informacion, text="Materiales aceptados", font=("Arial", 12, "bold"), bg="#E6FFE6", fg="#2E8B57")
     t_materiales.pack()
+
+    #scroll
+    scroll = Frame_scroll(informacion, 300, 300)
+    scroll.pack()
+
     #aqui mostraremos el material con el precio, todo en un frame (seran dependiendo de los que esten en el arreglo y se ocupara validar cuando hagamos lo de "agregar") 
     for m, p in zip(centro_i["materiales"],centro_i["precios"]):
-        f_materiales = Frame(informacion) #aqui el frame donde ira UN SOLO material
+        f_materiales = Frame(scroll.scrollable_frame) #aqui el frame donde ira UN SOLO material
     
         #mostrar materiales
         m_materiales = Label(f_materiales, text=f"{m}", font=("Arial", 8, "bold"))

@@ -1,0 +1,4 @@
+Planta de Reciclaje CIREC Miguel Hidalgo;Calle 5 de mayo #150, Col. San Lorenzo Tlaltenango;5555555555555555;Lunes a viernes: 8:00 am - 6:00 pm;Escombros,Residuos vegetales,Aceites y grasas;2.0,2.0,4.0;https://maps.app.goo.gl/9hYGHAfP6suBogjm7;1234
+Centro de Acopio de Residuos Reciclables (CAMH);Alcaldía Miguel Hidalgo, CDMX;5555555555555555;Lunes a sábado: 9:00 am - 5:00 pm;Plásticos,Papel,Cartón,Vidrio,Metales,Electrónicos;5.0,3.0,4.0,3.0,9.0,9.0;https://maps.app.goo.gl/tiqugsXU9aGtLm2d9;1234
+Centro de Reciclaje Avenida Juárez;Avenida Juárez, Miguel Hidalgo;5555555555555555;Lunes a viernes: 7:00 am - 4:00 pm;Cascajo,Residuos vegetales,Aceites usados;2.0,3.0,4.0;https://maps.app.goo.gl/YAnK9pS8ohp5YUC46;1908
+Centro de Reciclaje Avenida Juárez;Avenida Juárez, Miguel Hidalgo;5555555555555555;Lunes a viernes: 7:00 am - 4:00 pm;Aceites y grasas,Plásticos,Papel,Cartón;3.0,3.0,9.0;https://maps.app.goo.gl/C1YjxMGiC8iMZ4GWA;3456
