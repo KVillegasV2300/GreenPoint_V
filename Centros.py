@@ -9,7 +9,7 @@ materiales_reciclables = [
 ]
 
 RUTA = "centros.txt"
-ARCHIVO = os.path.join(RUTA)
+ARCHIVO = os.path.join("Datos",RUTA)
 
 centros =[] #Arreglo de centro donde estaran 
 
@@ -63,8 +63,8 @@ def crear_centro():
     }
 
 def agregar_centro(centro):
-    guardar_datos()
     centros.append(centro)
+    guardar_datos()
 
 # Función para editar un centro
 def editar_centro(nombre_nuevo, direccion_nueva, telefono_nuevo, horarios_nuevos, materiales_nuevos, precios_nuevos, link_nuevo, clave_ingresada, centro):

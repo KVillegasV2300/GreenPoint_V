@@ -36,7 +36,8 @@ def main():
         "iniciar_sesion" : Cuentas.iniciar_sesion,
         "obtener_tipo" : Cuentas.obtener_tipo,
         "obtener_clave" : Cuentas.obtener_clave,
-        "validar_contrasena" : Cuentas.validar_contrasena
+        "validar_contrasena" : Cuentas.validar_contrasena,
+        "editar_cuenta" : Cuentas.editar_cuenta
     }
 
     vista.interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros, administrar_cuentas)

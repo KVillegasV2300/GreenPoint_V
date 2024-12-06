@@ -1,63 +1,111 @@
 import tkinter as tk
 from tkinter import messagebox
+import os
 
 usuarios = []
 admistradores = []
 
-usuarios_prueba = [
-    {
-        "nombre": "Zeus",
-        "correo" : "zeustrr216@gmail.com",
-        "contrasena" : "holas",
-        "tipo" : "usuario"
-    },
-    {
-        "nombre": "2",
-        "correo" : "2",
-        "contrasena" : "2",
-        "tipo" : "usuario"
-    }
-]
+#aqui guardamos todo
+RUTA = "usuarios.txt"
+ARCHIVO = os.path.join("Datos",RUTA)
 
-adminitradosres_prueba = [
-    {
-        "nombre" : "Residuos pato",
-        "correo" : "pato@gmail.com",
-        "contrasena" : "pato",
-        "tipo": "administrador",
-        "clave" : "1908"
-    },
-    {
-        "nombre" : "1",
-        "correo" : "1",
-        "contrasena" : "1",
-        "tipo": "administrador",
-        "clave" : "1234"
-    }
-]
+RUTA2 = "administradores.txt"
+ARCHIVO2 = os.path.join("Datos",RUTA2)
 
-#meter todo en un array :) (temporal)
-for i in usuarios_prueba:
-        usuarios.append(i)
-        print(i['nombre'])
+# Función para cargar datos de usuarios.txt
+def cargar_datos():
+    if os.path.exists(ARCHIVO):
+        with open(ARCHIVO, "r") as f:
+            for linea in f:
+                partes = linea.strip().split(";")
+                if len(partes) >= 4:
+                    nombre = partes[0]
+                    correo = partes[1]
+                    contrasena = partes[2]
+                    tipo = partes[3]
+                    usuario = {
+                        "nombre": nombre,
+                        "correo": correo,
+                        "contrasena": contrasena,
+                        "tipo": tipo,
+                    }
+                    usuarios.append(usuario)
+    
+    if os.path.exists(ARCHIVO2):
+        with open(ARCHIVO2, "r") as f:
+            for linea in f:
+                partes = linea.strip().split(";")
+                if len(partes) >= 5:
+                    nombre = partes[0]
+                    correo = partes[1]
+                    contrasena = partes[2]
+                    tipo = partes[3]
+                    clave = partes[4]
+                    administrador = {
+                        "nombre": nombre,
+                        "correo": correo,
+                        "contrasena": contrasena,
+                        "tipo": tipo,
+                        "clave": clave
+                    }
+                    admistradores.append(administrador)
 
-for i in adminitradosres_prueba:
-        admistradores.append(i)
-        print(i['nombre'])
+# Función para guardar los datos
+def guardar_datos():
+    with open(ARCHIVO, "w") as f:
+        for usuario in usuarios:
+            f.write(f"{usuario['nombre']};{usuario['correo']};{usuario['contrasena']};{usuario['tipo']}\n")
+    
+    with open(ARCHIVO2, "w") as f:
+        for administrador in admistradores:
+            f.write(f"{administrador['nombre']};{administrador['correo']};{administrador['contrasena']};{administrador['tipo']};{administrador['clave']}\n")
 
+cargar_datos()
+    
 
+#logica de las cuentas
 def registrar_cuenta(username, correo, contrasena, confirmar_contrasena):
     if not username or not correo or not contrasena or not confirmar_contrasena:
         messagebox.showerror("Error", "Verifica que todas las casillas estén llenas")
-    elif any(correo == usuario[1] for usuario in usuarios):
+        return False
+    elif any(correo == usuario["correo"] for usuario in usuarios):
         messagebox.showerror("Error", "Ya existe un usuario con ese correo")
+        return False
     elif contrasena != confirmar_contrasena:
         messagebox.showerror("Error", "Las contraseñas no coinciden")
+        return False
     elif len(username) > 30:
         messagebox.showinfo("Oye", "El nombre de usuario solo puede contener máximo 30 caractéres")
+        return False
     else:
         messagebox.showinfo("usuario registrado", "usuario registrado exitosamente")
-        usuarios.append([username, correo, contrasena])
+        usuarios.append({"nombre": username, "correo": correo, "contrasena": contrasena, "tipo": "usuario"})
+        guardar_datos()
+        return True
+
+def editar_cuenta(username, correo, contrasena, confirmar_contrasena, cuenta):
+    
+    if not username or not correo or not contrasena or not confirmar_contrasena:
+        messagebox.showerror("Error", "Verifica que todas las casillas estén llenas")
+        return False
+    elif any(correo == usuario["correo"] and usuario is not cuenta for usuario in usuarios) or any(correo == usuario["correo"] and usuario is not cuenta for usuario in admistradores):
+        messagebox.showerror("Error", "Ya existe un usuario con ese correo")
+        return False
+    elif contrasena != confirmar_contrasena:
+        messagebox.showerror("Error", "Las contraseñas no coinciden")
+        return False
+    elif len(username) > 30:
+        messagebox.showinfo("Oye", "El nombre de usuario solo puede contener máximo 30 caractéres")
+        return False
+    else:
+        cuenta["nombre"] = username or cuenta["nombre"]
+        cuenta["correo"] = correo or cuenta["correo"]
+        cuenta["contrasena"] = contrasena or cuenta["contrasena"]
+        messagebox.showinfo("Exito", "Se ha editado exitosamente")
+        
+        guardar_datos()
+        return True
+
 
 def iniciar_sesion(username, correo, contrasena):
     # se recorre la lista para buscar similares
@@ -70,7 +118,6 @@ def iniciar_sesion(username, correo, contrasena):
             return usuario
 
     messagebox.showerror("Error", "Usuario o contraseña incorrectos.")
-    return  
 
 def obtener_tipo(usuario):
     return usuario["tipo"]
