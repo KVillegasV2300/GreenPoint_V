@@ -1,4 +1,3 @@
-import tkinter as tk
 import os
 
 RUTA = "usuarios.txt"
@@ -52,7 +51,7 @@ def cargar_datos():
                     contrasena = partes[2]
                     tipo = partes[3]
                     clave = partes[4]
-                    administrador = {
+                    administrador = {   
                         "nombre": nombre,
                         "correo": correo,
                         "contrasena": contrasena,
