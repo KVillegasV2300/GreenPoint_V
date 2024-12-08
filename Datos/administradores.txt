@@ -1,2 +1,2 @@
-Residuos pato;pato@gmail.com;pato;administrador;1908
-una cuenta mas;unacuenta@gmail.com;pato;administrador;1234
+Residuos Pato;pato@gmail.com;pato1;administrador;1908
+cuenta;cuenta@gmail.com;pato;administrador;1234

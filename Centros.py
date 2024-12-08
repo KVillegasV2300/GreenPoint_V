@@ -78,8 +78,8 @@ def editar_centro(nombre_nuevo, direccion_nueva, telefono_nuevo, horarios_nuevos
         centro["precios"] = precios_nuevos or centro["precios"]
         centro['link'] = link_nuevo or centro['link']
         centro["clave"] = clave_ingresada or centro["clave"]
-        guardar_datos()
         messagebox.showinfo("Éxito", "El centro se añadio correctamente.")
+        guardar_datos()
         return 
     messagebox.showwarning("Error", "No se encontró un centro con esa clave.")
 
