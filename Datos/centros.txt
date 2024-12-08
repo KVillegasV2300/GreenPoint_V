@@ -1,4 +1,9 @@
-Planta de Reciclaje CIREC Miguel Hidalgo;Calle 5 de mayo #150, Col. San Lorenzo Tlaltenango;5555555555555555;Lunes a viernes: 8:00 am - 6:00 pm;Escombros,Residuos vegetales,Aceites y grasas;2.0,2.0,4.0;https://maps.app.goo.gl/9hYGHAfP6suBogjm7;1234
-Centro de Acopio de Residuos Reciclables (CAMH);AlcaldÌa Miguel Hidalgo, CDMX;5555555555555555;Lunes a s·bado: 9:00 am - 5:00 pm;Pl·sticos,Papel,CartÛn,Vidrio,Metales,ElectrÛnicos;5.0,3.0,4.0,3.0,9.0,9.0;https://maps.app.goo.gl/tiqugsXU9aGtLm2d9;1234
-Centro de Reciclaje Avenida Ju·rez;Avenida Ju·rez, Miguel Hidalgo;555555555;Lunes a viernes: 7:00 am - 4:00 pm;Cascajo,Residuos vegetales,Aceites usados;2.0,3.0,4.0;https://maps.app.goo.gl/YAnK9pS8ohp5YUC46;1908
-Centro de Reciclaje Avenida Ju·rez;Avenida Ju·rez, Miguel Hidalgo;5555555555555555;Lunes a viernes: 7:00 am - 4:00 pm;Aceites y grasas,Pl·sticos,Papel,CartÛn;3.0,3.0,9.0;https://maps.app.goo.gl/C1YjxMGiC8iMZ4GWA;3456
+COMPRA VENTA DE DESPERDICIO INDUSTRIAL; Lago Huron s/n, Legaria, Miguel Hidalgo, 11410 Ciudad de M√©xico, CDMX;SIN NUMERO;NO ENCONTRADO;Electronicos;0.0;https://maps.app.goo.gl/SxuxBw9QZ8cYdpqA9;100
+DESPERDICIOS INDUSTRIALES;Mar mediterraneo, Tacuba, 11410 Ciudad de M√©xico, CDMX;SIN NUMERO;NO ENCONTRADO;Plasticos, Papel, Carton,;0.0,0.0,0.0;https://maps.app.goo.gl/PkVGTKSEeZ6UVW2YA;101
+RECICLAMEXICO;Nopaltzin 28, Tlaxpana, Miguel Hidalgo, 11340 Ciudad de M√©xico, CDMX;+525612959580;8am-6:30pm;Plasticos, Metales, Electr√≥nicos;0.0,0.0;https://maps.app.goo.gl/HvHu9s3jKbAzbtfL7;106
+RECICLA CENTRO ECOLOGICO; C. Lago Como 55, Los Manzanos, Miguel Hidalgo, 11460 Ciudad de M√©xico, CDMX;+525526591301;SIN HORARIO;Papel;2.0;https://maps.app.goo.gl/aR6uHsWRVVYnu7R89;189
+ECOCE;A.C., Av Moliere 39-2do piso, Polanco, Polanco III Secc, Miguel Hidalgo, 11560 Ciudad de M√©xico, CDMX;5552815318;ABIERTO 24HRS;Plasticos;0.0; https://maps.app.goo.gl/GMu4an7p8L77wNg38;234
+METALES SAN ALVARO;C. Jos√© S√°nchez Trujillo 283, San Alvaro, Azcapotzalco, 02090 Ciudad de M√©xico, CDMX;5622043092;10am-11pm;Plasticos,Metales,Electronicos;20.0,73.0,200.0;https://maps.app.goo.gl/gY7QV1rDvHveLdb29;450
+CENTRO DE RECICLAJE PIENSA VERDE;Av. Benjam√≠n Franklin 208, Escand√≥n I Secc, Miguel Hidalgo, 11800 Ciudad de M√©xico, CDMX;SIN NUMERO;9am-7pm;pLASTICOS,Metales;16.0,80.0; https://maps.app.goo.gl/vE8EvYt2MVHHkkLw8;133
+CENTRO DE RECICLAJE (COMPRO METAL);Mar Egeo 206, Popotla, Miguel Hidalgo, 11400 Ciudad de M√©xico, CDMX;5580555580;10am-6pm;Metales,Plasticos;0.0,0.0;https://maps.app.goo.gl/bEremhw3XoQTqdXw7;222
+CENTRO DE ACOPIO DE PAPEL Y METALES;Lago Patzcuaro, Tercera Priv. de Laguna de Guzm√°n 59, An√°huac I Secc, Miguel Hidalgo, 11320 Ciudad de M√©xico, CDMX;5551620015;10am-6pm;Papel,Metal;0.0,0.0;sin link;700

@@ -1,16 +1,23 @@
 import tkinter as tk
 from tkinter import messagebox
 import os
+import sys
 
 usuarios = []
 admistradores = []
 
-#aqui guardamos todo
-RUTA = "usuarios.txt"
-ARCHIVO = os.path.join("Datos",RUTA)
+# Función para obtener la ruta de los archivos incluidos
+def obtener_ruta_relativa(ruta_relativa):
+    # Detecta si el programa está en un ejecutable
+    if getattr(sys, 'frozen', False):
+        base_path = sys._MEIPASS  # Ruta temporal donde PyInstaller extrae los datos
+    else:
+        base_path = os.path.dirname(__file__)
+    return os.path.join(base_path, ruta_relativa)
 
-RUTA2 = "administradores.txt"
-ARCHIVO2 = os.path.join("Datos",RUTA2)
+#aqui guardamos todo
+ARCHIVO = obtener_ruta_relativa("Datos/usuarios.txt")
+ARCHIVO2 = obtener_ruta_relativa("Datos/administradores.txt")
 
 # Función para cargar datos de usuarios.txt
 def cargar_datos():

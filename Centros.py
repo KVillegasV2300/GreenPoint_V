@@ -1,15 +1,26 @@
 import tkinter as tk
 from tkinter import messagebox
 import os
+import sys
 
 # Lista de materiales reciclables
 materiales_reciclables = [
-    "Escombros", "Residuos vegetales", "Aceites y grasas", "Plásticos", "Papel", "Cartón",
-    "Vidrio", "Metales", "Electrónicos", "Cascajo", "Aceites usados"
+    "Escombros", "Residuos vegetales", "Aceites y grasas", "Plasticos", "Papel", "Carton",
+    "Vidrio", "Metales", "Electronicos", "Cascajo", "Aceites usados"
 ]
 
+# Función para obtener la ruta de los archivos incluidos
+def obtener_ruta_relativa(ruta_relativa):
+    # Detecta si el programa está en un ejecutable
+    if getattr(sys, 'frozen', False):
+        base_path = sys._MEIPASS  # Ruta temporal donde PyInstaller extrae los datos
+    else:
+        base_path = os.path.dirname(__file__)
+    return os.path.join(base_path, ruta_relativa)
+
+
 RUTA = "centros.txt"
-ARCHIVO = os.path.join("Datos",RUTA)
+ARCHIVO = obtener_ruta_relativa("Datos/centros.txt")
 
 centros =[] #Arreglo de centro donde estaran 
 

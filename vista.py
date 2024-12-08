@@ -10,6 +10,8 @@ root.geometry("1100x700") #Establecemos el tamaño de la ventana
 root.configure(bg="#E6FFE6")
 root.title("GreenPoint") #Título
 root.resizable(False,False) #La venta no sera reescalable
+# Establecer el ícono
+root.iconbitmap("icono.ico")
 
 usuario = {}
 estado = "no sesion"
@@ -39,8 +41,8 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         #botones de inciar sesion
         def botones_inicio():
             #agregamos los botones de iniciar sesion y registrarse
-            btn_iniciar_sesion = Button(botones_frame, text="inciar sesion", **Boton_estilo, command= lambda: [interfaz_funciones["eliminar_frame"](frame_principal),iniciar_sesion()])
-            btn_registrar_usuario = Button(botones_frame, text="registrar usuario", **Boton_estilo, command= lambda: [interfaz_funciones["eliminar_frame"](frame_principal),pagina_registrar()])
+            btn_iniciar_sesion = Button(botones_frame, text="Inciar sesion", **Boton_estilo, command= lambda: [interfaz_funciones["eliminar_frame"](frame_principal),iniciar_sesion()])
+            btn_registrar_usuario = Button(botones_frame, text="Registrar usuario", **Boton_estilo, command= lambda: [interfaz_funciones["eliminar_frame"](frame_principal),pagina_registrar()])
             
             btn_iniciar_sesion.grid(row=0, column=0)
             btn_registrar_usuario.grid(row=0, column=1)
@@ -141,11 +143,14 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
     """------------------------------------Eliminar centro-----------------------------------"""
     def eliminar_centro(centro, frame_principal):
         global usuario
+
         pagina_principal = tk.Toplevel(root)
         pagina_principal.title("Eliminar centro")
         pagina_principal.geometry("1100x300")
         pagina_principal.resizable(False, False)
         pagina_principal.configure(bg = "#C6F0C0")
+        # Establecer el ícono
+        pagina_principal.iconbitmap("icono.ico")
 
         def manejar_eliminar():
             contrasena = contrasena_entrada.get()
@@ -349,17 +354,17 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         Label(frame_principal, text="Iniciar sesion", **Label1_estilo).pack(pady=50)
 
         #nombre
-        Label(frame_principal, text="nombre", **Label2_estilo).place(x=360, y=150)
+        Label(frame_principal, text="Nombre", **Label2_estilo).place(x=360, y=150)
         insertar_nombre = Entry(frame_principal, **Entrada_estilo1, width=35)
         insertar_nombre.place(x=360, y=180) ###############################################
 
         #correo
-        Label(frame_principal, text="correo", **Label2_estilo).place(x=360, y=240)
+        Label(frame_principal, text="Correo", **Label2_estilo).place(x=360, y=240)
         insertar_correo = Entry(frame_principal, **Entrada_estilo1, width=35)
         insertar_correo.place(x=360, y=270)
         
         #contraseña
-        Label(frame_principal, text="contraseña", **Label2_estilo).place(x=360, y=330)
+        Label(frame_principal, text="Contraseña", **Label2_estilo).place(x=360, y=330)
         insertar_contrasena = Entry(frame_principal, **Entrada_estilo1, show="*", width=35)
         insertar_contrasena.place(x=360, y=360)
         
