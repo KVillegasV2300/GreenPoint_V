@@ -123,7 +123,7 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         boton_casa()
         #texto
         subtitulo_label = Label(frame_principal, text="Tus centros", **Label1_estilo)
-        subtitulo_label.pack(pady=10)
+        subtitulo_label.pack(pady=10, ipadx=40, ipady=6)
         
         #boton de agregar
         nuevo_centro = administrar_centros["crear_centro"]() 
@@ -143,6 +143,9 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         global usuario
         pagina_principal = tk.Toplevel(root)
         pagina_principal.title("Eliminar centro")
+        pagina_principal.geometry("1100x300")
+        pagina_principal.resizable(False, False)
+        pagina_principal.configure(bg = "#C6F0C0")
 
         def manejar_eliminar():
             contrasena = contrasena_entrada.get()
@@ -158,16 +161,16 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
                 pagina_crear()
 
 
-        Label(pagina_principal, text=f"¿Deseas eliminar el centro: {centro["nombre"]}?", **Label1_estilo).pack(pady=10)
-        Label(pagina_principal, text="Para eliminar el centro, necesita confirmar su contraseña", **Label2_estilo).pack(pady=5)
-        contrasena_entrada = Entry(pagina_principal, **Entrada_estilo1, show="*")
-        contrasena_entrada.pack(pady=10)
+        Label(pagina_principal, text=f"¿Deseas eliminar el centro: {centro["nombre"]}?", **Label1_estilo, width=50).pack(padx=12,pady=13, ipadx=7, ipady=5)
+        Label(pagina_principal, text="Para eliminar el centro, necesita confirmar su contraseña", **Label2_estilo, width=85, height=2).place(x=40, y=67)
+        contrasena_entrada = Entry(pagina_principal, **Entrada_estilo2, show="*")
+        contrasena_entrada.pack(pady=60)
 
         btn_confirmar= Button(pagina_principal, text="enviar", **Boton_rojo, command= manejar_eliminar)
         btn_cancelar = Button(pagina_principal, text="cancelar", **Boton_azul,command= lambda: [pagina_principal.destroy()])
 
-        btn_confirmar.pack()
-        btn_cancelar.pack()
+        btn_confirmar.place(x = 1000, y = 230)
+        btn_cancelar.place(x = 850, y = 230)
     
     """------------------------------------pagina editar/agregar-----------------------------------"""
     def pagina_editar(centro, caso ,clave = None):
