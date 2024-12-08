@@ -8,6 +8,7 @@ import copy
 root = Tk() #establecemos la rama "principal"
 root.geometry("1100x700") #Establecemos el tamaño de la ventana
 root.configure(bg="#E6FFE6")
+root.title("GreenPoint") #Título
 root.resizable(False,False) #La venta no sera reescalable
 
 usuario = {}
@@ -15,17 +16,19 @@ estado = "no sesion"
 
 #estilos reutilizables
 # Estilos reutilizables
-Boton_estilo = {"bg": "#2E8B57", "fg": "white", "font": ("Arial", 12, "bold"), "relief": "flat"}
-Boton_rojo = {"bg": "#C51D34", "fg": "white", "font": ("Arial", 12, "bold"), "relief": "flat"}
-Boton_azul = {"bg": "#92C5FC", "fg": "white", "font": ("Arial", 12, "bold"), "relief": "flat"}
+Boton_estilo = {"bg": "#2E8B57", "fg": "white", "font": ("Arial", 14, "bold"), "relief": "flat"}
+Boton_rojo = {"bg": "#C51D34", "fg": "white", "font": ("Arial", 14, "bold"), "relief": "flat"}
+Boton_azul = {"bg": "#92C5FC", "fg": "white", "font": ("Arial", 14, "bold"), "relief": "flat"}
 
-Entrada_estilo = {"font": ("Arial", 12), "bg": "#FFFFFF", "fg": "#2E8B57", "highlightthickness": 2}
-Label1_estilo = { "font" : ("Arial", 14, "bold"), "bg" : "#E6FFE6"}
-Label2_estilo = { "font" : ("Arial", 12), "bg" : "#E6FFE6"}
+Entrada_estilo1 = {"font": ("Arial", 15), "bg": "gray85", "fg": "black", "highlightthickness": 2, "borderwidth": 0}
+Entrada_estilo2 = {"font": ("Arial", 20), "bg": "gray85", "fg": "black", "highlightthickness": 2, "borderwidth": 0}
+Label1_estilo = { "font" : ("Arial", 25, "bold"), "bg" : "white"}
+Label2_estilo = { "font" : ("Arial", 14, "bold"), "bg" : "white"}
 Label3_estilo = { "font" : ("Arial", 12, "bold"), "bg" : "#E6FFE6"}
+Label4_estilo = { "font" : ("Arial", 25, "bold"), "bg" : "#E6FFE6"}
+Label5_estilo = { "font" : ("Arial", 25, "bold"), "bg" : "white"}
 
 def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros, administrar_cuentas):
-
     # Encabezado
     titulo_label = Label(root, text="GreenPoint", font=("Arial", 28, "bold"), bg="#A3D9A5", fg="#2E8B57")
     titulo_label.pack(fill="x")
@@ -76,16 +79,16 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
 
         #texto
         subtitulo_label = Label(frame_principal, text="Buscar Centros de Reciclaje por Material", **Label1_estilo)
-        subtitulo_label.pack(pady=10)
+        subtitulo_label.pack(pady=20, padx = 10, ipadx=50, ipady=3)
 
         #scroll
         scroll = interfaz_funciones["frame_scroll"](frame_principal, 500, 1000) #frame principal de busqueda y SCROLLBAR
-        scroll.place(x=40,y=170) #place significa que NOSOTROS necesitaremos acomodar manualmente el widget, con coordenadas x e y
+        scroll.place(x=40,y=190) #place significa que NOSOTROS necesitaremos acomodar manualmente el widget, con coordenadas x e y
         
         #creamos la barra
         barra = interfaz_funciones["barra_busqueda"](frame_principal)
         barra["buscar_btn"].config(command=lambda:[manejar_busqueda(barra["lista"]), interfaz_funciones["ocultar_frame"](barra["cuadro_frame"])])
-        barra["busqueda_frame"].place(x=450, y=120)
+        barra["busqueda_frame"].place(x=450, y=150)
 
         frame_principal.pack(fill=BOTH, expand=True)
     
@@ -114,18 +117,18 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
             btn_eliminar = Button(acciones_frame, text="eliminar", **Boton_estilo,command=lambda: eliminar_centro(centro, frame_principal))
 
             acciones_frame.pack(fill=X)
-            btn_editar.pack(side=RIGHT)
-            btn_eliminar.pack(side=RIGHT)
+            btn_editar.pack(side=RIGHT, padx=(10, 10), pady=(20, 20))
+            btn_eliminar.pack(side=RIGHT, padx=(10, 10), pady=(20, 20))
 
         boton_casa()
         #texto
         subtitulo_label = Label(frame_principal, text="Tus centros", **Label1_estilo)
-        subtitulo_label.pack(pady=10)
+        subtitulo_label.pack(pady=10, ipadx=40, ipady=6)
         
         #boton de agregar
         nuevo_centro = administrar_centros["crear_centro"]() 
         btn_agregar = Button(frame_principal, text="Agregar centro", **Boton_estilo,  command= lambda : [interfaz_funciones["eliminar_frame"](frame_principal), pagina_editar(nuevo_centro, "agregar", clave)])
-        btn_agregar.pack()
+        btn_agregar.place(x=890, y=130)
 
         #scroll
         scroll = interfaz_funciones["frame_scroll"](frame_principal, 500, 1000) #frame principal de busqueda y SCROLLBAR
@@ -140,6 +143,9 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         global usuario
         pagina_principal = tk.Toplevel(root)
         pagina_principal.title("Eliminar centro")
+        pagina_principal.geometry("1100x300")
+        pagina_principal.resizable(False, False)
+        pagina_principal.configure(bg = "#C6F0C0")
 
         def manejar_eliminar():
             contrasena = contrasena_entrada.get()
@@ -155,16 +161,16 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
                 pagina_crear()
 
 
-        Label(pagina_principal, text=f"¿Deseas eliminar el centro: {centro["nombre"]}?", **Label1_estilo).pack(pady=10)
-        Label(pagina_principal, text="Para eliminar el centro, necesita confirmar su contraseña", **Label2_estilo).pack(pady=5)
-        contrasena_entrada = Entry(pagina_principal, **Entrada_estilo, show="*")
-        contrasena_entrada.pack(pady=10)
+        Label(pagina_principal, text=f"¿Deseas eliminar el centro: {centro["nombre"]}?", **Label1_estilo, width=50).pack(padx=12,pady=13, ipadx=7, ipady=5)
+        Label(pagina_principal, text="Para eliminar el centro, necesita confirmar su contraseña", **Label2_estilo, width=85, height=2).place(x=40, y=67)
+        contrasena_entrada = Entry(pagina_principal, **Entrada_estilo2, show="*")
+        contrasena_entrada.pack(pady=60)
 
         btn_confirmar= Button(pagina_principal, text="enviar", **Boton_rojo, command= manejar_eliminar)
         btn_cancelar = Button(pagina_principal, text="cancelar", **Boton_azul,command= lambda: [pagina_principal.destroy()])
 
-        btn_confirmar.pack()
-        btn_cancelar.pack()
+        btn_confirmar.place(x = 1000, y = 230)
+        btn_cancelar.place(x = 850, y = 230)
     
     """------------------------------------pagina editar/agregar-----------------------------------"""
     def pagina_editar(centro, caso ,clave = None):
@@ -213,13 +219,14 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
             nuevo_telefono = editar_telefono.get()
             
             #validacion
-
             if len(nuevo_nombre) > 40:
                 messagebox.showwarning("Error", "El nombre debe de tener menos de 40 caracteres")
                 return
             elif len(nuevo_telefono) > 15:
                 messagebox.showwarning("Error", "El numero de telefono debe de tener menos de 15 caracteres")
                 return
+            elif not nuevo_nombre or not nuevo_direccion or not nuevo_horario or not nuevo_link or not nuevo_telefono:
+                messagebox.showwarning("Error", "Verifica que todos los datos estén llenos")
             else:
                 if caso == "agregar": administrar_centros["agregar_centro"](centro) #solo si se esta agregando un nuevo centro
                 administrar_centros["editar_centro"](nuevo_nombre, nuevo_direccion, nuevo_telefono, nuevo_horario, materiales, precios, nuevo_link, centro["clave"], centro)
@@ -231,7 +238,7 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
             botones_frame = Frame(frame_principal, bg="#636363")
             botones_frame.pack(fill="x")
             btn_agregar_centro = Button(botones_frame, text="Tus centros", **Boton_estilo, command= lambda: [interfaz_funciones["eliminar_frame"](frame_principal),pagina_crear()])
-            btn_agregar_centro.grid(row=0, column=0)
+            btn_agregar_centro.grid(row=0, column=0, padx=(10, 10), pady=(5, 5))
 
         boton_casa()
 
@@ -243,48 +250,55 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
             Label(frame_principal, text="Agregar Centro", **Label1_estilo).pack(pady=10)
             Label(frame_principal, text=f"{centro["nombre"]}", font=("Arial", 12), bg="#E6FFE6").pack(pady=5)
 
+        #Fondo
+        Label(frame_principal, bg="#CBCBCB", width=200, height=50).place(x=0, y=0) #Cuadro de Fondo
+        Label(frame_principal, bg="white", width=145, height=38).place(x=35, y=35) #Cuadro de Fondo
+
+        #Título
+        Label(frame_principal, text="Editar centro", **Label1_estilo).place(x=450, y=60)
+
         #nombre
-        Label(frame_principal, text="Nombre", **Label2_estilo).pack(pady=5)
-        editar_nombre = Entry(frame_principal, **Entrada_estilo)
+        Label(frame_principal, text="Nombre", **Label2_estilo).place(x=230, y=140)
+        editar_nombre = Entry(frame_principal, **Entrada_estilo1, width=40)
         editar_nombre.insert(0,centro["nombre"])
-        editar_nombre.pack()
+        editar_nombre.place(x=60, y=170)
 
         #direccion
-        Label(frame_principal, text="Direccion", **Label2_estilo).pack(pady=5)
-        editar_direccion = Entry(frame_principal, **Entrada_estilo)
+        Label(frame_principal, text="Direccion", **Label2_estilo).place(x=230, y=220)
+        editar_direccion = Entry(frame_principal, **Entrada_estilo1, width=40)
         editar_direccion.insert(0, centro["direccion"])
-        editar_direccion.pack()
+        editar_direccion.place(x=60, y=250)
 
         #materiales y precios
-        Label(frame_principal, text="Materiales", **Label2_estilo).pack(pady=5)
+        Label(frame_principal, text="Materiales", **Label2_estilo).place(x=780, y=140)
         
         #horarios
-        Label(frame_principal, text="Horarios", **Label2_estilo).pack(pady=10)
-        editar_horario = Entry(frame_principal, **Entrada_estilo)
+        Label(frame_principal, text="Horarios", **Label2_estilo).place(x=230, y=300)
+        editar_horario = Entry(frame_principal, **Entrada_estilo1, width=40)
         editar_horario.insert(0, centro["horarios"])
-        editar_horario.pack()
+        editar_horario.place(x=60, y=330)
         
         #link
-        Label(frame_principal, text="Link", **Label2_estilo).pack(pady=5)
-        editar_link = Entry(frame_principal, **Entrada_estilo)
+        Label(frame_principal, text="Link de Ubicación", **Label2_estilo).place(x=200, y=380)
+        editar_link = Entry(frame_principal, **Entrada_estilo1, width=40)
         editar_link.insert(0, centro["link"])
-        editar_link.pack()
+        editar_link.place(x=60, y=410)
 
         #telefono
-        Label(frame_principal, text="Telefono", **Label2_estilo).pack(pady=5)
-        editar_telefono = Entry(frame_principal, **Entrada_estilo)
+        Label(frame_principal, text="Telefono", **Label2_estilo).place(x=230, y=460)
+        editar_telefono = Entry(frame_principal, **Entrada_estilo1, width=40)
         editar_telefono.insert(0, centro["telefono"])
-        editar_telefono.pack()
+        editar_telefono.place(x=60, y=490)
 
         btn_enviar = Button(frame_principal, text="Guardar", **Boton_azul, command= obtener_cambios)
         btn_cancelar = Button(frame_principal, text="Cancelar", **Boton_rojo, command= lambda: [interfaz_funciones["eliminar_frame"](frame_principal),pagina_crear()])
-        btn_enviar.pack(pady=5)
-        btn_cancelar.pack(pady=5)
+        btn_enviar.place(x=920, y=550)
+        btn_cancelar.place(x=720, y=550)
 
         #creamos la barra
         barra = interfaz_funciones["barra_busqueda"](frame_principal, centro["materiales"])
         barra["buscar_btn"].config(text=f"{caso}", command =lambda : [interfaz_funciones["ocultar_frame"](barra["cuadro_frame"]), editar_materiales(barra["lista"])])
-        barra["busqueda_frame"].place(x=430, y=240)
+        barra["busqueda_frame"].place(x=720, y=190) #Barra de Materiales
 
         frame_principal.pack(fill=BOTH, expand=True)
     
@@ -295,9 +309,9 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         def boton_casa():
             #otro encabezado (posibles botones futuros)
             botones_frame = Frame(frame_principal, bg="#636363")
-            botones_frame.pack(fill="x")
             btn_agregar_centro = Button(botones_frame, text="Pagina principal",**Boton_estilo, command= lambda: [interfaz_funciones["eliminar_frame"](frame_principal),pagina_principal()])
             btn_agregar_centro.grid(row=0, column=0)
+            botones_frame.pack(fill="x")
 
         def iniciar_sesion():
 
@@ -326,27 +340,35 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
                 pagina_principal()
 
         
+        
+        Label(frame_principal, bg="#ABF0A1", width=200, height=16).place(x=0, y=0) #Cuadro de Fondo
+        Label(frame_principal, bg="gray20", width=200, height=30).place(x=0, y=240) #Cuadro de Fondo
+        Label(frame_principal, bg="white", width=70, height=33).place(x=310, y=60) #Cuadro de Fondo
         boton_casa()
-        Label(frame_principal, text="Iniciar sesion", **Label1_estilo).pack(pady=10)
+
+        Label(frame_principal, text="Iniciar sesion", **Label1_estilo).pack(pady=50)
 
         #nombre
-        Label(frame_principal, text="nombre", **Label2_estilo).pack(pady=10)
-        insertar_nombre = Entry(frame_principal, **Entrada_estilo)
-        insertar_nombre.pack(pady=5)
+        Label(frame_principal, text="nombre", **Label2_estilo).place(x=360, y=150)
+        insertar_nombre = Entry(frame_principal, **Entrada_estilo1, width=35)
+        insertar_nombre.place(x=360, y=180) ###############################################
 
         #correo
-        Label(frame_principal, text="correo", **Label2_estilo).pack(pady=10)
-        insertar_correo = Entry(frame_principal, **Entrada_estilo)
-        insertar_correo.pack(pady=5)
+        Label(frame_principal, text="correo", **Label2_estilo).place(x=360, y=240)
+        insertar_correo = Entry(frame_principal, **Entrada_estilo1, width=35)
+        insertar_correo.place(x=360, y=270)
         
         #contraseña
-        Label(frame_principal, text="contraseña", **Label2_estilo).pack(pady=10)
-        insertar_contrasena = Entry(frame_principal, **Entrada_estilo, show="*")
-        insertar_contrasena.pack(pady=5)
+        Label(frame_principal, text="contraseña", **Label2_estilo).place(x=360, y=330)
+        insertar_contrasena = Entry(frame_principal, **Entrada_estilo1, show="*", width=35)
+        insertar_contrasena.place(x=360, y=360)
         
         #botones
         boton_enviar = Button(frame_principal, text = "Iniciar sesion", command= iniciar_sesion, **Boton_estilo)
-        boton_enviar.pack(pady=10)
+        boton_enviar.place(x=600, y=450)
+
+        boton_cancelar = Button(frame_principal, text = "Volver", command= lambda: [interfaz_funciones["eliminar_frame"](frame_principal),pagina_principal()], **Boton_rojo)
+        boton_cancelar.place(x=360, y=450)
 
         frame_principal.pack(fill=BOTH, expand=True)
 
@@ -372,28 +394,36 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
             messagebox.showinfo("Éxito", "se ha cerrado sesion correctamente")
 
         
-        boton_casa()
         
-        Label(frame_principal, text="Tu cuenta", **Label1_estilo).pack(pady=10)
+        
+        Label(frame_principal, bg="#ABF0A1", width=200, height=16).place(x=0, y=0) #Cuadro de Fondo
+        Label(frame_principal, bg="gray20", width=200, height=30).place(x=0, y=240) #Cuadro de Fondo
+        Label(frame_principal, bg="white", width=120, height=30).place(x=130, y=80) #Cuadro de Fondo
+        boton_casa()
+
+        Label(frame_principal, text="Tu cuenta", **Label1_estilo).pack(pady=55)
+
         #nombre
-        Label(frame_principal, text="Nombre:", **Label2_estilo).pack(pady=5)
-        Label(frame_principal, text=usuario["nombre"], **Label3_estilo).pack(pady=5)
+        Label(frame_principal, text="Nombre:", **Label5_estilo, justify="left").place(x=180, y=180)
+        Label(frame_principal, text=usuario["nombre"], **Label4_estilo, width=28).place(x=350, y=180)
 
         #correo
-        Label(frame_principal, text="Correo:", **Label2_estilo).pack(pady=5)
-        Label(frame_principal, text=usuario["correo"], **Label3_estilo).pack(pady=5)
+        Label(frame_principal, text="Correo:", **Label5_estilo).place(x=180, y=260)
+        Label(frame_principal, text=usuario["correo"], **Label4_estilo, width=28).place(x=350, y=260)
 
         #contraseña
-        Label(frame_principal, text="Contraseña:", **Label2_estilo).pack(pady=5)
+        Label(frame_principal, text="Contraseña:", **Label5_estilo).place(x=180, y=340)
 
         texto_contrasena = "*" * len(usuario["contrasena"])
-        contrasena_label = Label(frame_principal, text=texto_contrasena, **Label3_estilo)        
-        contrasena_label.pack(pady=5)
+        contrasena_label = Label(frame_principal, text=texto_contrasena, **Label4_estilo, width=26)        
+        contrasena_label.place(x=400, y=340)
 
         btn_editar = Button(frame_principal, text="Editar", **Boton_azul, command= lambda : [interfaz_funciones["eliminar_frame"](frame_principal), pagina_editar_cuenta()])
+        btn_editar.place(x=850, y=450)
         btn_cerrar = Button(frame_principal, text="Cerrar sesion", **Boton_rojo, command=lambda : [cerrar_sesion() ,pagina_principal(),interfaz_funciones["eliminar_frame"](frame_principal)])
-        btn_editar.pack(pady=5)
-        btn_cerrar.pack(pady=5)
+        btn_cerrar.place(x=800, y=110)
+        boton_cancelar = Button(frame_principal, text = "Volver", command= lambda: [interfaz_funciones["eliminar_frame"](frame_principal),pagina_principal()], **Boton_rojo)
+        boton_cancelar.place(x=180, y=450)
 
         frame_principal.pack(fill=BOTH, expand=True)
     
@@ -422,38 +452,45 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
                 interfaz_funciones["eliminar_frame"](frame_principal)
                 pagina_cuenta()
 
-        boton_casa()
+        
         #editar
+        Label(frame_principal, bg="#ABF0A1", width=200, height=16).place(x=0, y=0) #Cuadro de Fondo
+        Label(frame_principal, bg="gray20", width=200, height=30).place(x=0, y=240) #Cuadro de Fondo
+        Label(frame_principal, bg="white", width=120, height=30).place(x=130, y=80) #Cuadro de Fondo
+        boton_casa()
+        Label(frame_principal, text="Tu cuenta", **Label1_estilo).pack(pady=55)
         Label(frame_principal, text="Editar cuenta", **Label1_estilo)
+        Label(frame_principal, text="Editar cuenta", **Label1_estilo)
+        
         #nombre
-        Label(frame_principal, text="Nombre", **Label2_estilo).pack(pady=5)
-        editar_nombre = Entry(frame_principal, **Entrada_estilo)
+        Label(frame_principal, text="Nombre", **Label5_estilo).place(x=180, y=180)
+        editar_nombre = Entry(frame_principal, **Entrada_estilo2, width=38)
         editar_nombre.insert(0,usuario["nombre"])
-        editar_nombre.pack()
+        editar_nombre.place(x=350, y=180)
 
         #correo
-        Label(frame_principal, text="Correo", **Label2_estilo).pack(pady=5)
-        editar_correo = Entry(frame_principal, **Entrada_estilo)
+        Label(frame_principal, text="Correo", **Label5_estilo).place(x=180, y=230)
+        editar_correo = Entry(frame_principal, **Entrada_estilo2, width=38)
         editar_correo.insert(0,usuario["correo"])
-        editar_correo.pack()
+        editar_correo.place(x=350, y=230)
 
         #contraseña
-        Label(frame_principal, text="Contraseña", **Label2_estilo).pack(pady=5)
-        editar_contrasena = Entry(frame_principal, **Entrada_estilo, show="*")
+        Label(frame_principal, text="Contraseña", **Label5_estilo).place(x=180, y=280)
+        editar_contrasena = Entry(frame_principal, **Entrada_estilo2, show="*", width=35)
         editar_contrasena.insert(0,usuario["contrasena"])
-        editar_contrasena.pack()
+        editar_contrasena.place(x=394, y=280)
 
         #confrimar contraseña
-        Label(frame_principal, text="Confirmar contraseña", **Label2_estilo).pack(pady=5)
-        confirmar_contrasena = Entry(frame_principal, **Entrada_estilo, show="*")
+        Label(frame_principal, text="Confirmar contraseña", **Label5_estilo).place(x=180, y=330)
+        confirmar_contrasena = Entry(frame_principal, **Entrada_estilo2, show="*", width=24)
         confirmar_contrasena.insert(0,usuario["contrasena"])
-        confirmar_contrasena.pack()
+        confirmar_contrasena.place(x=556, y=330)
 
         #botones
         btn_confirmar = Button(frame_principal, text="Confirmar", **Boton_azul,command=manejar_editar)
         btn_cancelar = Button(frame_principal, text="Cancelar", **Boton_rojo, command=lambda : [interfaz_funciones["eliminar_frame"](frame_principal), pagina_cuenta()])
-        btn_confirmar.pack(pady=5)
-        btn_cancelar.pack(pady=5)
+        btn_confirmar.place(x=800, y=450)
+        btn_cancelar.place(x=180, y=450)
 
         frame_principal.pack(fill=BOTH, expand=True)
 
@@ -482,34 +519,39 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
                 interfaz_funciones["eliminar_frame"](frame_principal)
                 pagina_principal()
 
+        
+        Label(frame_principal, bg="#ABF0A1", width=200, height=16).place(x=0, y=0) #Cuadro de Fondo
+        Label(frame_principal, bg="gray20", width=200, height=30).place(x=0, y=240) #Cuadro de Fondo
+        Label(frame_principal, bg="white", width=70, height=33).place(x=310, y=60) #Cuadro de Fondo
         boton_casa()
+
         #editar
-        Label(frame_principal, text="Registrar cuenta", **Label1_estilo).pack(pady=10)
+        Label(frame_principal, text="Registrar cuenta", **Label1_estilo).pack(pady=50)
         #nombre
-        Label(frame_principal, text="Nombre", **Label2_estilo).pack(pady=5)
-        agregar_nombre = Entry(frame_principal, **Entrada_estilo)
-        agregar_nombre.pack()
+        Label(frame_principal, text="Nombre", **Label2_estilo).place(x=360, y=160)
+        agregar_nombre = Entry(frame_principal, **Entrada_estilo1, width=35)
+        agregar_nombre.place(x=360, y=185)
 
         #correo
-        Label(frame_principal, text="Correo", **Label2_estilo).pack(pady=5)
-        agregar_correo = Entry(frame_principal, **Entrada_estilo)
-        agregar_correo.pack()
+        Label(frame_principal, text="Correo", **Label2_estilo).place(x=360, y=230)
+        agregar_correo = Entry(frame_principal, **Entrada_estilo1, width=35)
+        agregar_correo.place(x=360, y=255)
 
         #contraseña
-        Label(frame_principal, text="Contraseña", **Label2_estilo).pack(pady=5)
-        agregar_contrasena = Entry(frame_principal, **Entrada_estilo, show="*")
-        agregar_contrasena.pack()
+        Label(frame_principal, text="Contraseña", **Label2_estilo).place(x=360, y=300)
+        agregar_contrasena = Entry(frame_principal, **Entrada_estilo1, show="*", width=35)
+        agregar_contrasena.place(x=360, y=325)
 
         #confrimar contraseña
-        Label(frame_principal, text="Confirmar contraseña", **Label2_estilo).pack(pady=5)
-        confirmar_contrasena = Entry(frame_principal, **Entrada_estilo, show="*")
-        confirmar_contrasena.pack()
+        Label(frame_principal, text="Confirmar contraseña", **Label2_estilo).place(x=360, y=370)
+        confirmar_contrasena = Entry(frame_principal, **Entrada_estilo1, show="*", width=35)
+        confirmar_contrasena.place(x=360, y=395)
 
         #botones
         btn_confirmar = Button(frame_principal, text="Confirmar", **Boton_azul, command=manejar_agregar)
         btn_cancelar = Button(frame_principal, text="Cancelar", **Boton_rojo, command=lambda : [interfaz_funciones["eliminar_frame"](frame_principal), pagina_principal()])
-        btn_confirmar.pack(pady=5)
-        btn_cancelar.pack(pady=5)
+        btn_confirmar.place(x=640, y=450)
+        btn_cancelar.place(x=360, y=450)
 
         frame_principal.pack(fill=BOTH, expand=True)
 
