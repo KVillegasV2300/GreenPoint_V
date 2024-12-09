@@ -1,9 +1,9 @@
-COMPRA VENTA DE DESPERDICIO INDUSTRIAL; Lago Huron s/n, Legaria, Miguel Hidalgo, 11410 Ciudad de México, CDMX;SIN NUMERO;NO ENCONTRADO;Electronicos;0.0;https://maps.app.goo.gl/SxuxBw9QZ8cYdpqA9;100
-DESPERDICIOS INDUSTRIALES;Mar mediterraneo, Tacuba, 11410 Ciudad de México, CDMX;SIN NUMERO;NO ENCONTRADO;Plasticos, Papel, Carton,;0.0,0.0,0.0;https://maps.app.goo.gl/PkVGTKSEeZ6UVW2YA;101
-RECICLAMEXICO;Nopaltzin 28, Tlaxpana, Miguel Hidalgo, 11340 Ciudad de México, CDMX;+525612959580;8am-6:30pm;Plasticos, Metales, Electrónicos;0.0,0.0;https://maps.app.goo.gl/HvHu9s3jKbAzbtfL7;106
-RECICLA CENTRO ECOLOGICO; C. Lago Como 55, Los Manzanos, Miguel Hidalgo, 11460 Ciudad de México, CDMX;+525526591301;SIN HORARIO;Papel;2.0;https://maps.app.goo.gl/aR6uHsWRVVYnu7R89;189
-ECOCE;A.C., Av Moliere 39-2do piso, Polanco, Polanco III Secc, Miguel Hidalgo, 11560 Ciudad de México, CDMX;5552815318;ABIERTO 24HRS;Plasticos;0.0; https://maps.app.goo.gl/GMu4an7p8L77wNg38;234
+RECICLAMEXICO;Nopaltzin 28, Tlaxpana, Miguel Hidalgo, 11340 Ciudad de México, CDMX;+525612959580;8am-6:30pm;Plasticos,Metales;3.0,4.0;https://maps.app.goo.gl/HvHu9s3jKbAzbtfL7;3456
+RECICLA CENTRO ECOLOGICO; C. Lago Como 55, Los Manzanos, Miguel Hidalgo, 11460 Ciudad de México, CDMX;+525526591301;SIN HORARIO;Papel;2.0;https://maps.app.goo.gl/aR6uHsWRVVYnu7R89;3456
+ECOCE;A.C., Av Moliere 39-2do piso, Polanco, Polanco III Secc, Miguel Hidalgo, 11560 Ciudad de México, CDMX;5552815318;ABIERTO 24HRS;Plasticos,Residuos vegetales,Aceites y grasas;0.0,0.0,0.0; https://maps.app.goo.gl/GMu4an7p8L77wNg38;234
 METALES SAN ALVARO;C. José Sánchez Trujillo 283, San Alvaro, Azcapotzalco, 02090 Ciudad de México, CDMX;5622043092;10am-11pm;Plasticos,Metales,Electronicos;20.0,73.0,200.0;https://maps.app.goo.gl/gY7QV1rDvHveLdb29;450
-CENTRO DE RECICLAJE PIENSA VERDE;Av. Benjamín Franklin 208, Escandón I Secc, Miguel Hidalgo, 11800 Ciudad de México, CDMX;SIN NUMERO;9am-7pm;pLASTICOS,Metales;16.0,80.0; https://maps.app.goo.gl/vE8EvYt2MVHHkkLw8;133
+CENTRO DE RECICLAJE PIENSA VERDE;Av. Benjamín Franklin 208, Escandón I Secc, Miguel Hidalgo, 11800 Ciudad de México, CDMX;SIN NUMERO;9am-7pm;Plasticos,Metales,Vidrio;16.0,80.0; https://maps.app.goo.gl/vE8EvYt2MVHHkkLw8;133
 CENTRO DE RECICLAJE (COMPRO METAL);Mar Egeo 206, Popotla, Miguel Hidalgo, 11400 Ciudad de México, CDMX;5580555580;10am-6pm;Metales,Plasticos;0.0,0.0;https://maps.app.goo.gl/bEremhw3XoQTqdXw7;222
 CENTRO DE ACOPIO DE PAPEL Y METALES;Lago Patzcuaro, Tercera Priv. de Laguna de Guzmán 59, Anáhuac I Secc, Miguel Hidalgo, 11320 Ciudad de México, CDMX;5551620015;10am-6pm;Papel,Metal;0.0,0.0;sin link;700
+COMPRA VENTA DE DESPERDICIO INDUSTRIAL; Lago Huron s/n, Legaria, Miguel Hidalgo, 11410 Ciudad de México, CDMX;SIN NUMERO;NO ENCONTRADO;Electronicos;0.0;https://maps.app.goo.gl/SxuxBw9QZ8cYdpqA9;100
+DESPERDICIOS INDUSTRIALES;Mar mediterraneo, Tacuba, 11410 Ciudad de México, CDMX;SIN NUMERO;NO ENCONTRADO;Plasticos,Papel,Carton;0.0,0.0,0.0;https://maps.app.goo.gl/PkVGTKSEeZ6UVW2YA;101

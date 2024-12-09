@@ -92,6 +92,24 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         barra["buscar_btn"].config(command=lambda:[manejar_busqueda(barra["lista"]), interfaz_funciones["ocultar_frame"](barra["cuadro_frame"])])
         barra["busqueda_frame"].place(x=450, y=150)
 
+        
+        def boton_accion():
+            print("¡Botón circular presionado!")
+
+        # Crear Canvas para dibujar el círculo
+        canvas = tk.Canvas(root, width=80, height=75, highlightthickness=0)
+        canvas.place(x=10, y=600)
+
+        # Dibujar un círculo en el Canvas
+        circulo = canvas.create_oval(10, 10, 70, 70, fill="#2E8B57", outline="#2E8B57", width=2)
+
+        texto = canvas.create_text(41, 41, text="?", fill="white", font=("Arial", 14, "bold"))
+
+        #boton para el acerca de nosotros
+        canvas.tag_bind(circulo, "<Button-1>", lambda event: [interfaz_funciones["eliminar_frame"](frame_principal),pagina_nosotros()])
+        canvas.tag_bind(texto, "<Button-1>", lambda event: [interfaz_funciones["eliminar_frame"](frame_principal),pagina_nosotros()])
+
+
         frame_principal.pack(fill=BOTH, expand=True)
     
     """---------------------------------------------crear centros------------------------------------------"""
@@ -198,7 +216,7 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
 
             for i, material in enumerate(materiales_actuales):
                 if material in Opciones:
-                    nuevo_precio = simpledialog.askstring(f"{material}: precio actual {precios_actuales[i]}$", "Ingresa el nuevo precio o presiona ENTER para mantener el actual:") or precios_actuales[i]
+                    nuevo_precio = simpledialog.askstring(f"{material}: precio actual {precios_actuales[i]}$", "(Por kilo) Ingresa el nuevo precio o presiona ENTER para mantener el actual: ") or precios_actuales[i]
                     materiales.append(material)
                     precios.append(float(nuevo_precio))
                 else:
@@ -206,7 +224,7 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
             
             for material in Opciones:
                 if material not in materiales_actuales:
-                    nuevo_precio = simpledialog.askstring(f"{material}: Nuevo material", f"Ingresa el precio para {material}:")
+                    nuevo_precio = simpledialog.askstring(f"{material}: Nuevo material", f"(Por kilo) Ingresa el precio para {material}:")
 
                     #comprobamos si se selecciono el precio
                     if nuevo_precio:
@@ -557,6 +575,28 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         btn_cancelar = Button(frame_principal, text="Cancelar", **Boton_rojo, command=lambda : [interfaz_funciones["eliminar_frame"](frame_principal), pagina_principal()])
         btn_confirmar.place(x=640, y=450)
         btn_cancelar.place(x=360, y=450)
+
+        frame_principal.pack(fill=BOTH, expand=True)
+    """"--------------------acerca de nosotros-----------------------------"""
+    def pagina_nosotros():
+        frame_principal = Frame(root)
+        def boton_casa():
+            #otro encabezado (posibles botones futuros)
+            botones_frame = Frame(frame_principal, bg="#636363")
+            botones_frame.pack(fill="x")
+            btn_agregar_centro = Button(botones_frame, text="Pagina principal",**Boton_estilo, command= lambda: [interfaz_funciones["eliminar_frame"](frame_principal),pagina_principal()])
+            btn_agregar_centro.grid(row=0, column=0)
+        
+        boton_casa()
+        #editar
+        Label(frame_principal, text="Acerca de nosotros", **Label1_estilo).pack(pady=50)
+        # Cargar imagen del disco.
+        imagen = tk.PhotoImage(file="immg.png")
+        # Insertarla en una etiqueta.
+        label = ttk.Label(frame_principal,image=imagen)
+        label.place(y=40)
+
+        label.imagen = imagen
 
         frame_principal.pack(fill=BOTH, expand=True)
 

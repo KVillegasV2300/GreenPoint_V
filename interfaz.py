@@ -47,15 +47,18 @@ def mostrar_centro(centro_i, root):
     t_horario.pack()
     m_horario.pack()
 
+    telefono = Frame(centro, bg="#D9D9D9")
+    Label(telefono, text=f"Telefono: {centro_i["telefono"]}", font=("Arial", 12, "bold"), bg="#D9D9D9", fg="black").pack(side="left")
+    telefono.pack(fill="x")
+
     # Agregar un frame de informacion
     informacion = Frame(centro, bg="#FFFFFF", width=400, height=250)
     informacion.pack_propagate(False) #evitar el resize
     informacion.pack(side=LEFT, padx=25, pady=25)
-
     #scroll
 
     # Agregar los materiales
-    t_materiales = Label(informacion, text="Materiales aceptados", font=("Arial", 12, "bold"), bg="#E6FFE6", fg="#2E8B57")
+    t_materiales = Label(informacion, text="Materiales aceptados (Por kilo)", font=("Arial", 12, "bold"), bg="#E6FFE6", fg="#2E8B57")
     t_materiales.pack()
 
     #scroll
@@ -95,6 +98,8 @@ def mostrar_centro(centro_i, root):
     t_direccion.pack()
     m_direccion.pack(pady=10)
     b_mapa.pack(pady=5)
+
+    
 
 def Barra_Busqueda(root, indices_por_defecto=None):
     # Crear los frames
