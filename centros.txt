@@ -1,12 +1,22 @@
 COMPRA VENTA DE DESPERDICIO INDUSTRIAL; Lago Huron s/n, Legaria, Miguel Hidalgo, 11410 Ciudad de México, CDMX;SIN NUMERO;NO ENCONTRADO;Electrónicos;0.0;,https://maps.app.goo.gl/SxuxBw9QZ8cYdpqA9;100
-DESPERDICIOS INDUSTRIALES;Mar mediterraneo, Tacuba, 11410 Ciudad de México, CDMX;SIN NUMERO;NO ENCONTRADO;Plásticos, Papel, Cartón,;0.0,0.0,0.0;https://maps.app.goo.gl/PkVGTKSEeZ6UVW2YA;101
-RECICLAMEXICO;Nopaltzin 28, Tlaxpana, Miguel Hidalgo, 11340 Ciudad de México, CDMX;+525612959580;8am-6:30pm;Plásticos, Metales, Electrónicos;0.0,0.0;https://maps.app.goo.gl/HvHu9s3jKbAzbtfL7;106
+DESPERDICIOS INDUSTRIALES;Mar mediterraneo, Tacuba, 11410 Ciudad de México, CDMX;SIN NUMERO;NO ENCONTRADO;Plasticos, Papel, Cartón,;0.0,0.0,0.0;https://maps.app.goo.gl/PkVGTKSEeZ6UVW2YA;101
+RECICLAMEXICO;Nopaltzin 28, Tlaxpana, Miguel Hidalgo, 11340 Ciudad de México, CDMX;+525612959580;8am-6:30pm;Plasticos, Metales, Electrónicos;0.0,0.0;https://maps.app.goo.gl/HvHu9s3jKbAzbtfL7;106
 RECICLA CENTRO ECOLOGICO; C. Lago Como 55, Los Manzanos, Miguel Hidalgo, 11460 Ciudad de México, CDMX;+525526591301;SIN HORARIO;Papel;2.0;https://maps.app.goo.gl/aR6uHsWRVVYnu7R89;189
-ECOCE;A.C., Av Moliere 39-2do piso, Polanco, Polanco III Secc, Miguel Hidalgo, 11560 Ciudad de México, CDMX;5552815318;ABIERTO 24HRS;Plásticos;0.0; https://maps.app.goo.gl/GMu4an7p8L77wNg38;234
+ECOCE;A.C., Av Moliere 39-2do piso, Polanco, Polanco III Secc, Miguel Hidalgo, 11560 Ciudad de México, CDMX;5552815318;ABIERTO 24HRS;Plasticos;0.0; https://maps.app.goo.gl/GMu4an7p8L77wNg38;234
 METALES SAN ALVARO;C. José Sánchez Trujillo 283, San Alvaro, Azcapotzalco, 02090 Ciudad de México, CDMX;5622043092;10am-11pm;Plasticos,Metales,Electronicos;20.0,73.0,200.0;https://maps.app.goo.gl/gY7QV1rDvHveLdb29;450
-CENTRO DE RECICLAJE PIENSA VERDE;Av. Benjamín Franklin 208, Escandón I Secc, Miguel Hidalgo, 11800 Ciudad de México, CDMX;SIN NUMERO;9am-7pm;pLASTICOS,Metales;16.0,80.0; https://maps.app.goo.gl/vE8EvYt2MVHHkkLw8;133
+CENTRO DE RECICLAJE PIENSA VERDE;Av. Benjamín Franklin 208, Escandón I Secc, Miguel Hidalgo, 11800 Ciudad de México, CDMX;SIN NUMERO;9am-7pm;Plasticos,Metales;16.0,80.0; https://maps.app.goo.gl/vE8EvYt2MVHHkkLw8;133
 CENTRO DE RECICLAJE (COMPRO METAL);Mar Egeo 206, Popotla, Miguel Hidalgo, 11400 Ciudad de México, CDMX;5580555580;10am-6pm;Metales,Plasticos;0.0,0.0;https://maps.app.goo.gl/bEremhw3XoQTqdXw7;222
 CENTRO DE ACOPIO DE PAPEL Y METALES;Lago Patzcuaro, Tercera Priv. de Laguna de Guzmán 59, Anáhuac I Secc, Miguel Hidalgo, 11320 Ciudad de México, CDMX;5551620015;10am-6pm;Papel,Metal;0.0,0.0;sin link;700
 RECICLADORA ANDARAPOX;Primavera 75 a, Ángel Zimbrón, Azcapotzalco, 02099 Ciudad de México, CDMX;5596889653;9am-6pm;Metales,Papel,Carton;0.0,0.0,0.0; https://maps.app.goo.gl/ozNkd83KnJAft3yz6;099
 RECICLADORA MUNDO VERDE;C. Lago Chapala 121b, Anáhuac I Secc., Anáhuac I Secc, Miguel Hidalgo, 11320 Ciudad de México, CDMX;5591041965;8am-5pm;Carton,Papel,Plasticos,Metales;0.0,0.0,0.0,0.0;https://maps.app.goo.gl/wRRoWXGZa6hg2J1f9;567
-CENTRO DE RECICLAJE;Mar Egeo 206, Popotla, Miguel Hidalgo, 11400 Ciudad de México, CDMX;5580555581;10am-7pm;Plasticos,Metales;0.0,0.0;https://maps.app.goo.gl/pvLPYyTJT4pj5rwn8;233 
+CENTRO DE RECICLAJE;Mar Egeo 206, Popotla, Miguel Hidalgo, 11400 Ciudad de México, CDMX;5580555581;10am-7pm;Plasticos,Metales;0.0,0.0;https://maps.app.goo.gl/pvLPYyTJT4pj5rwn;233
+RECUPERA TACUBAYA;Martires de Tacubaya 5, Escandón I Secc, Miguel Hidalgo, 03800 Ciudad de México, CDMX;5552716001;8am-5pm;Carton;0.0;https://maps.app.goo.gl/ibZidMF9KBEjkqTL8;909
+RECICLADO BERRECERIL;Av Tecamachalco 148, Reforma Soc, Miguel Hidalgo, 11000 Ciudad de México, CDMX;5531097266:8am-5pm;Metales;0.0;https://maps.app.goo.gl/i7aD6FsW4bxM4Hi8A;458
+RECOLEARTH;Calle Ferrocarril de Cuernavaca 78, Granada, Miguel Hidalgo, 11520 Ciudad de México, CDMX;SIN NUMERO;8am-5pm;Carton;0.0;https://maps.app.goo.gl/b13ZsyKJVYvSCkob6;777
+RECICLA CENTRO ECOLOGICO;C. Lago Como 55, Los Manzanos, Miguel Hidalgo, 11460 Ciudad de México, CDMX;5526591301;9am-7pm;Metales,Carton;Plasticos;30.0,10.0,2.0;https://maps.app.goo.gl/WAd864zzDbJcKSvZ6;999
+CENTRO DE ACOPIO MARIANO;Calz. San Bartolo Naucalpan 16, Refinería 18 de Marzo, Miguel Hidalgo, 11219 Ciudad de México, CDMX;SIN NUMERO;10am-6pm;Electronicos,Papel,Carton;0.0,0.0,0.0;https://maps.app.goo.gl/HoCtcdWNdtS2KLGV9;743
+RECICLEMOS JUNTOS;Jaime Torres Bodet 72, Sta María la Ribera, Cuauhtémoc, 06400 Ciudad de México, CDMX;5570456766;8am-6pm;Paple;Carton,Metales;0.0,0.0,0.0;https://maps.app.goo.gl/qbdF3WBq9PxETLP19;800
+ACOPIO DE APARATOS ELECTRONICOS;Av. Isaac Newton 153, Chapultepec Morales, Polanco V Secc, Miguel Hidalgo, 11550 Ciudad de México, CDMX;SIM NUMERO;0am-24pm;Electronicos;0.0;https://maps.app.goo.gl/VERe5r2UzKzFXMzs8;102
+IMURECICLA; esq calzada legaria, Presa Salinillas, Loma Hermosa, Lomas Hermosa, 11200 Ciudad de México, CDMX;SINNUMERO;0am-24pm;Electronicos;0.0;https://maps.app.goo.gl/2m98PVF7oadab1bZA;349
+ECOCE.A.C;Av Moliere 39-2do piso, Polanco, Polanco III Secc, Miguel Hidalgo, 11560 Ciudad de México, CDMX;5552815318;0am-24pm;Papel,Carton;;Metales;0.0,0.0,0.0;https://maps.app.goo.gl/zC4PPGF2svHrP8ET6;988
+RECICLADORA RAEE;SIN DIRRECCION;5889966301;8am-5pm;Electronicos;0.0;;https://maps.app.goo.gl/sRsYQESxTMt8w4us7;761
