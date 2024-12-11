@@ -6,7 +6,6 @@ import webbrowser
 #modulos
 import Centros as m
 
-#esto es robado si? sufri mucho agregando el scrollbar :(((((
 class Frame_scroll(Frame):
     def __init__(self, container, h, w, *args, **kwargs):
         super().__init__(container, *args, **kwargs)

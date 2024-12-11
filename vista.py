@@ -2,7 +2,18 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk, messagebox, simpledialog
+import os
+import sys
 import copy
+
+# Función para obtener la ruta de los archivos incluidos
+def obtener_ruta(ruta_relativa):
+    # Detecta si el programa está en un ejecutable
+    if getattr(sys, 'frozen', False):
+        base_path = sys._MEIPASS  # Ruta temporal donde PyInstaller extrae los datos
+    else:
+        base_path = os.path.dirname(__file__)
+    return os.path.join(base_path, ruta_relativa)
 
 #configuracion de la aplicacion
 root = Tk() #establecemos la rama "principal"
@@ -11,7 +22,11 @@ root.configure(bg="#E6FFE6")
 root.title("GreenPoint") #Título
 root.resizable(False,False) #La venta no sera reescalable
 # Establecer el ícono
-root.iconbitmap("icono.ico")
+try:
+    icono = obtener_ruta("Imagenes/icono.ico")
+    root.iconbitmap(icono)
+except Exception as e:
+    print(f"Error al cargar el ícono: {e}")
 
 usuario = {}
 estado = "no sesion"
@@ -168,7 +183,8 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         pagina_principal.resizable(False, False)
         pagina_principal.configure(bg = "#C6F0C0")
         # Establecer el ícono
-        pagina_principal.iconbitmap("icono.ico")
+        icon_p = obtener_ruta("Imagenes/icono.ico")
+        pagina_principal.iconbitmap(icon_p)
 
         def manejar_eliminar():
             contrasena = contrasena_entrada.get()
@@ -265,20 +281,19 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
 
         boton_casa()
 
-        #casos
-        if caso == "editar":
-            Label(frame_principal, text="Editar Centro", **Label1_estilo).pack(pady=10)
-            Label(frame_principal, text=f"{centro["nombre"]}", font=("Arial", 12), bg="#E6FFE6").pack(pady=5)
-        elif caso == "agregar":
-            Label(frame_principal, text="Agregar Centro", **Label1_estilo).pack(pady=10)
-            Label(frame_principal, text=f"{centro["nombre"]}", font=("Arial", 12), bg="#E6FFE6").pack(pady=5)
-
         #Fondo
         Label(frame_principal, bg="#CBCBCB", width=200, height=50).place(x=0, y=0) #Cuadro de Fondo
         Label(frame_principal, bg="white", width=145, height=38).place(x=35, y=35) #Cuadro de Fondo
 
         #Título
-        Label(frame_principal, text="Editar centro", **Label1_estilo).place(x=450, y=60)
+        #Label(frame_principal, text="Editar centro", **Label1_estilo).place(x=450, y=60)
+        #casos
+        if caso == "editar":
+            Label(frame_principal, text="Editar Centro", **Label1_estilo).place(x=450, y=60)
+            print(caso)
+        if caso == "agregar":
+            Label(frame_principal, text="Agregar Centro", **Label1_estilo).place(x=450, y=60)
+            print(caso)
 
         #nombre
         Label(frame_principal, text="Nombre", **Label2_estilo).place(x=230, y=140)
@@ -591,7 +606,8 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
         #editar
         Label(frame_principal, text="Acerca de nosotros", **Label1_estilo).pack(pady=50)
         # Cargar imagen del disco.
-        imagen = tk.PhotoImage(file="immg.png")
+        dir_imagen  = obtener_ruta("Imagenes\immg.png")
+        imagen = tk.PhotoImage(file=dir_imagen)
         # Insertarla en una etiqueta.
         label = ttk.Label(frame_principal,image=imagen)
         label.place(y=40)
@@ -602,4 +618,3 @@ def interfaz_principal(busqueda_centros, interfaz_funciones, administrar_centros
 
     pagina_principal()
     root.mainloop()
-
