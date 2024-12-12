@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import os
 import sys
+import shutil
 
 # Lista de materiales reciclables
 materiales_reciclables = [
@@ -9,18 +10,34 @@ materiales_reciclables = [
     "Vidrio", "Metales", "Electronicos", "Cascajo", "Aceites usados"
 ]
 
-# Función para obtener la ruta de los archivos incluidos
+
+# Función para obtener la ruta accesible en el sistema del usuario
+def obtener_ruta_datos(nombre_archivo):
+    carpeta_datos = os.path.join(os.path.expanduser("~"), "GreenPoint")  # Carpeta en el directorio del usuario
+    os.makedirs(carpeta_datos, exist_ok=True)  # Crear carpeta si no existe
+    return os.path.join(carpeta_datos, nombre_archivo)
+
+# Función para obtener la ruta relativa de los archivos empaquetados
 def obtener_ruta_relativa(ruta_relativa):
-    # Detecta si el programa está en un ejecutable
-    if getattr(sys, 'frozen', False):
-        base_path = sys._MEIPASS  # Ruta temporal donde PyInstaller extrae los datos
+    if getattr(sys, 'frozen', False):  # Si está empaquetado con PyInstaller
+        base_path = sys._MEIPASS
     else:
         base_path = os.path.dirname(__file__)
     return os.path.join(base_path, ruta_relativa)
 
+# Función para copiar el archivo inicial a una carpeta accesible
+def inicializar_archivo_datos():
+    ruta_destino = obtener_ruta_datos("centros.txt")  # Carpeta accesible
+    if not os.path.exists(ruta_destino):  # Solo copiar si el archivo no existe
+        ruta_origen = obtener_ruta_relativa("Datos/centros.txt")  # Ruta del archivo empaquetado
+        shutil.copy(ruta_origen, ruta_destino)
+        print(f"Archivo inicial copiado a: {ruta_destino}")
 
-RUTA = "centros.txt"
-ARCHIVO = obtener_ruta_relativa("Datos/centros.txt")
+# Llama a esta función antes de cargar los datos
+inicializar_archivo_datos()
+
+# Ahora define tu archivo como siempre
+ARCHIVO = obtener_ruta_datos("centros.txt")
 
 centros =[] #Arreglo de centro donde estaran 
 
